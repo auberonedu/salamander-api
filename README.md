@@ -42,10 +42,13 @@ Extract and return the first frame from the video as a JPEG.
   JPEG binary data  
   _Content-Type: image/jpeg_
 
+
 - **500 Internal Server Error**
 
-  ```
-  Error generating thumbnail
+  ```json
+  {
+    "error": "Error generating thumbnail"
+  }
   ```
 
 ---
@@ -82,6 +85,15 @@ Kick off an asynchronous job to analyze the video. Returns a `jobId` you can pol
   ```json
   {
     "error": "Missing targetColor or threshold query parameter."
+  }
+  ```
+
+
+- **500 Internal Server Error**
+
+  ```json
+  {
+    "error": "Error starting job"
   }
   ```
 
@@ -131,5 +143,13 @@ Check whether the job is still running, has completed, or failed.
   ```json
   {
     "error": "Job ID not found"
+  }
+  ```
+
+- **500 Internal Server Error**
+
+  ```json
+  {
+    "error": "Error fetching job status"
   }
   ```
